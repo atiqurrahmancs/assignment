@@ -1,5 +1,4 @@
 <?php
-
 $databaseHost = 'localhost';
 $databaseName = 'php_crud_application';
 $databaseUsername = 'root';

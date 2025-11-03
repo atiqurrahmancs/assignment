@@ -1,0 +1,9 @@
+.design{
+   display: flex;
+   justify-content: center;
+   justify-items: center;
+   border: 2px;
+   border-color: brown;
+   margin: 10px;
+
+}

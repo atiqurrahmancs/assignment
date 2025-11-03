@@ -3,13 +3,14 @@
 include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
-$result = $dbConn->query("SELECT * FROM users");
+$result = $dbConn->query("SELECT * FROM employees");
 ?>
 
 <html>
 
 <head>
 	<title>Home Page</title>
+	<link rel="stylesheet" href="assets/app.css">
 </head>
 
 <body>
@@ -18,17 +19,19 @@ $result = $dbConn->query("SELECT * FROM users");
 	<table width='80%' border=0>
 
 		<tr bgcolor='#CCCCCC'>
+			<td>ID</td>
 			<td>Name</td>
-			<td>Age</td>
-			<td>Email</td>
+			<td>Phone</td>
+			<td>Designation</td>
 			<td>Update</td>
 		</tr>
 		<?php
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo "<tr>";
+			echo "<td>" . $row['id'] . "</td>";
 			echo "<td>" . $row['name'] . "</td>";
-			echo "<td>" . $row['age'] . "</td>";
-			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['phone'] . "</td>";
+			echo "<td>" . $row['designation'] . "</td>";
 			echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 		}
 		?>

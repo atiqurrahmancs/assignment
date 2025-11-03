@@ -3,10 +3,10 @@
 include("config.php");
 
 //getting id of the data from url
-$id = $_GET['id'];
+$id = $_POST['id'];
 
 //deleting the row from table
-$sql = "SELECT FROM users WHERE id = $id";
+$sql = "DELETE FROM employees WHERE id = $id";
 $dbConn->exec($sql);
 
 //redirecting to the display page (index.php in our case)
