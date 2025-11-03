@@ -3,7 +3,7 @@
 include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
-$result = $dbConn->query("SELECT * FROM employees");
+$result = $dbConn->query("SELECT * FROM employees ORDER BY id DESC");
 ?>
 
 <html>

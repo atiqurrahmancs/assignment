@@ -39,9 +39,15 @@
 	} else {
 		// if all the fields are filled (not empty) 
 
-		//insert data to database		
-		$sql = "INSERT INTO employees (name, id, phone, designation) VALUES ('$name', '$id', '$phone', '$designation')";
-		$dbConn->exec($sql);
+		//insert data to database	
+		$sql = "INSERT INTO employees (id, name, phone, designation)
+    VALUES (:id, :name, :phone, :designation)";
+$stmt = $dbConn->prepare($sql);
+$stmt->bindValue(':id', $id, PDO::PARAM_STR);
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+$stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+$stmt->bindValue(':designation', $designation, PDO::PARAM_STR);
+$stmt->execute();
 
 		//display success message
 		echo "<font color='green'>Data added successfully.";

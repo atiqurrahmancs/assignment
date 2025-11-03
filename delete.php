@@ -3,7 +3,7 @@
 include("config.php");
 
 //getting id of the data from url
-$id = $_POST['id'];
+$id = $_REQUEST['id'];
 
 //deleting the row from table
 $sql = "DELETE FROM employees WHERE id = $id";
